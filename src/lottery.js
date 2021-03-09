@@ -1,7 +1,7 @@
 import web3 from "./web3";
 // where our contract address is deployed on the rinkeby network
-const contractAddress = "0x405C4c0F1b7A230bC1Bb14991534870B2B04F986";
-// the application binary interface of our contract that allows to interact with 
+const contractAddress = "0xD5A0B5e8a72588a7ff9f511FBd68d81B363C58b9";
+// the application binary interface of our contract that allows to interact with
 // the contract from javascript
 const abi = [
   {
@@ -50,6 +50,15 @@ const abi = [
     type: "function",
   },
   {
+    constant: true,
+    inputs: [],
+    name: "lastWinner",
+    outputs: [{ name: "", type: "address" }],
+    payable: false,
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [],
     payable: false,
     stateMutability: "nonpayable",
@@ -58,5 +67,5 @@ const abi = [
 ];
 
 // this will allow us to interact with the contract's given functions..
-// .. like pickWinner() and enter() 
+// .. like pickWinner() and enter()
 export default new web3.eth.Contract(abi, contractAddress);
